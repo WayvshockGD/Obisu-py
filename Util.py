@@ -3,7 +3,7 @@ import pygame
 
 pygame.font.init()
 
-font = pygame.font.SysFont("Comic Sans MS", 30)
+font = pygame.font.SysFont("arial", 30)
 
 
 def get_file_path(path):

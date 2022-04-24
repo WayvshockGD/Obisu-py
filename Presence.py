@@ -8,12 +8,18 @@ with open("config.json") as f:
 
 
 def init():
-    rpc.connect()
+    try:
+        rpc.connect()
+    except pypresence.InvalidPipe:
+        print("Unable to connect to discord, running without presence")
 
 
 def update_presence(state_presence, desc):
-    rpc.update(
-        state=state_presence,
-        details=desc,
-        large_image="logo"
-    )
+    try:
+        rpc.update(
+            state=state_presence,
+            details=desc,
+            large_image="logo"
+        )
+    except AssertionError:
+        pass
